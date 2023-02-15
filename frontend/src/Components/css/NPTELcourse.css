@@ -1,0 +1,121 @@
+.nptel-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.week-nptel {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 0.5em 2em 0.5em 2em;
+}
+
+.navigation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.btn-nptel {
+    width: 10%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.weekNum {
+    margin-top: 0.7%;
+}
+
+
+.question span {
+    font-weight: 700;
+}
+
+.head-nptel {
+    padding: .6em;
+    width: 90%;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.week-btn {
+    background: black;
+    color: white;
+    padding: .5em .8em;
+    border-radius: 50%;
+    margin: 0px .5em;
+}
+
+.active-week {
+    background: linear-gradient(90deg, #254380 -3.1%, #54A7C8 112.18%);
+}
+
+.content-nptel {
+    width: 70%;
+    padding: 0.5em 2em 0.5em 2em;
+    margin-top: 1%;
+    max-height: 70vh;
+    overflow: scroll;
+}
+
+.nav-tool-top {
+    position: absolute;
+    left: 1%;
+    top: 9%;
+}
+
+.content-nptel .ans {
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+}
+
+.content-nptel .question {
+    padding: 1em
+}
+
+.ass-box hr {
+    width: 98%;
+    margin: auto auto;
+}
+
+
+.ass-box {
+    margin: 1%;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.ans .option {
+    margin-right: 2%;
+    width: 35%;
+    width: fit-content;
+}
+
+.ans div {
+    background: #B8E2BA;
+    padding-left: .9em;
+    padding-right: .9em;
+    border-radius: 5px;
+    width: 90%;
+    overflow: auto;
+}
+
+@media screen and (max-width:1024px) {
+    .content-nptel {
+        width: 390px;
+    }
+
+    .head-nptel {
+        margin-top: 6%;
+        font-size: 1.5em;
+    }
+
+}

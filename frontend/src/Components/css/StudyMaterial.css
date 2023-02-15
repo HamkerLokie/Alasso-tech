@@ -1,0 +1,184 @@
+/* .sub-cont {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sub-cont .banner,
+.sub-cont .banner img {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+
+}
+
+button {
+    background: #2C2858;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    border-radius: 12px;
+    font-size: 15px;
+    border: none;
+    color: #ffffff;
+    padding: 15px;
+}
+
+.subs {
+    margin: 2%;
+    background: #2C2858;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    color: white;
+    padding: .65em;
+}
+
+.carousel {
+    width: 90%;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    margin-bottom: 2%;
+    margin-left: 5%;
+
+}
+
+.c-c {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.c-item {
+    min-height: calc(100vh - 400px);
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+.c-item button {
+    width: 30%;
+    border-radius: 0px;
+}
+
+.c-item:hover {
+    transition: all 0.9s ease 0s;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.name-code {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.c-item img {
+    width: 40%;
+    margin: 5%;
+}
+
+.react-multi-carousel-list .react-multiple-carousel__arrow {
+    background: #2C2858;
+    z-index: 0;
+    color: red;
+} */
+
+
+
+
+
+
+/* NEEEEEEEEEEEEEEEEEEEEEEEEWWWWWWWWWWWWW */
+
+
+
+.sub-cont {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sub-cont .banner,
+.sub-cont .banner img {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+
+}
+
+button {
+    background: #2C2858;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    border-radius: 12px;
+    font-size: 15px;
+    border: none;
+    color: #ffffff;
+    padding: 15px;
+}
+
+.subs {
+    margin: 2%;
+    background: #2C2858;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    color: white;
+    padding: .65em;
+}
+
+.carousel {
+    width: 90%;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    margin-bottom: 2%;
+    margin-left: 5%;
+
+}
+
+.c-c {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.c-item {
+    min-height: calc(100vh - 400px);
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+.c-item button {
+    width: 30%;
+    border-radius: 0px;
+}
+
+.c-item:hover {
+    /* box-shadow: rgba(0, 0, 0, 0.9) 0px 25px 20px -20px; */
+    transition: all 0.9s ease 0s;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.name-code {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.name-code button{
+    width: 300px;
+    border-radius: 10px;
+}
+
+.c-item img {
+    width: 300px;
+    height: 230px;
+    margin-bottom: 5%;
+    border-radius: 10px;
+}
+
+.react-multi-carousel-list .react-multiple-carousel__arrow {
+    background: #2C2858;
+    z-index: 0;
+    color: red;
+    padding: 4px;
+}
+
+.react-multi-carousel-list .react-multiple-carousel__arrow:hover{
+    background: #5f27cd;
+}

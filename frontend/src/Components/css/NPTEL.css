@@ -1,0 +1,18 @@
+.nptel-coursename{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.-nptel{
+    background-color: #FDD562;
+    color: black;
+    font-weight: 600;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    /* background: linear-gradient(0deg, #D32A43 16.27%, #EF9014 63.55%, #F7AA08 78.15%, #FBE521 95.87%);  */
+}
+
+.error{
+    padding: 5em;
+    
+    text-align: center;
+}

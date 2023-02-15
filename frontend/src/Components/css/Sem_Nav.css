@@ -1,0 +1,58 @@
+.course-cred-nav
+{
+    margin-top: 1%;
+}
+
+.s-n-c{
+    width: 90%;
+    position: relative;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    margin-left: 5%;
+    margin-top: -5%;
+    margin-bottom: 2%;
+}
+
+.link-li{
+    text-decoration: none;
+    color: white;
+}
+.x-c{
+    margin-left: 5%;
+}
+.new-c-c{
+    display: flex;
+    width: 100%;
+   
+}
+
+.sub-names{
+    width: 100%;
+}
+
+.c-i{
+    margin: 2%;
+}
+
+.sun_name{
+    font-size: small;
+}
+
+@media screen and (max-width:1024px) {
+    .xx{
+        position: absolute;
+        font-size: small;
+        top: 11%;
+        color: white;
+    }
+    .display-tool{
+        display: none;
+    }
+
+    .content{
+        margin-top: 25%;
+    }
+
+    .x-c{
+        width: 90%;
+    }
+}
