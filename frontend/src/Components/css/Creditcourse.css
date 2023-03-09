@@ -1,4 +1,4 @@
-.platforms{
+.platforms {
     width: 60%;
     margin: auto auto;
     display: flex;
@@ -6,88 +6,124 @@
     margin-top: 2%;
     margin-bottom: 2%;
 }
-.plat-text{
+
+.plat-text {
     position: absolute;
     top: 19%;
-    font-size:3rem;
+    font-size: 3rem;
 }
 
-.plat-top{
+.plat-top {
     display: flex;
     justify-content: space-between;
 }
 
-.plat-top input{
-    border:none;
+.plat-top input {
+    border: none;
     border-radius: 15px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     padding: 0em .9em;
     outline: none;
 }
-.plat-title{
+
+.plat-title {
     font-size: 2rem;
 }
-.cp img{
+
+.cp img {
     width: 100%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 
 }
 
-.course-platform{
+
+.plat-title {
+    font-weight: 800;
+}
+
+
+
+.course-platform .cp:nth-child(even):hover {
+    transform: rotate(-2deg);
+}
+
+.course-platform .cp:nth-child(odd):hover {
+    transform: rotate(2deg);
+}
+
+.course-platform .cp:nth-child(odd):hover img {
+    transform: rotate(-5deg);
+    transition: transform 0.2s ease-in-out;
+
+}
+
+.course-platform .cp:nth-child(even):hover img {
+    transform: rotate(5deg);
+    transition: transform 0.2s ease-in-out;
+
+}
+
+.course-platform .cp {
+    transition: transform 0.2s ease-in-out;
+}
+
+
+.course-platform {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.cp{
+.cp {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     padding: 0;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   margin: 0px 1%;
-   border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 1%;
+    border-radius: 20px;
 
-    
+
 }
 
 
-.cp:hover{
+/* .cp:hover{
     transform: scale(1.05);
     transition: all 0.6s ease 0s;
-}
+} */
 
 
 
-.cp .span{
+.cp .span {
     padding: 1em 1em;
-    align-self:flex-start;
+    align-self: flex-start;
     font-weight: 600;
 }
 
 
 @media screen and (max-width:1024px) {
-   .course-platform{
-    display: flex;
-    flex-direction: column;
-    
-   }
+    .course-platform {
+        display: flex;
+        flex-direction: column;
 
-   .plat-text{
-    display: none;
-   }
+    }
 
-   .cp{
-    margin: 2% 0%;
-   }
+    .plat-text {
+        display: none;
+    }
 
-   .plat-top{
-    display: flex;
-    flex-direction: column;
-   }
-   .plat-top input{
-    padding: .5em .5em;
-   }
+    .cp {
+        margin: 2% 0%;
+    }
+
+    .plat-top {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .plat-top input {
+        padding: .5em .5em;
+    }
 }

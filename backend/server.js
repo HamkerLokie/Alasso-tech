@@ -4,6 +4,7 @@ const fs = require('fs')
 const { default: mongoose } = require('mongoose')
 const { google } = require('googleapis')
 const multerGoogleDrive = require('multer-google-drive')
+const { Configuration, OpenAIApi } = require('openai')
 
 // Schemas
 const Admin = require('./schemas/adminSchema')
@@ -22,7 +23,6 @@ const multer = require('multer')
 const methodOverride = require('method-override')
 const PORT = process.env.PORT || 8000
 const bcrypt = require('bcryptjs')
-const { count, Console } = require('console')
 const BASE_URL = process.env.BASE_URL
 
 // Middlewares
@@ -45,6 +45,45 @@ const conn = mongoose.createConnection(process.env.MONGODB_URI)
 app.get('/', (req, res) => {
   res.send('Hello From Server')
 })
+
+// Open AI
+
+// const configuration = new Configuration({
+//   organization: 'org-sAQgpY4fZfcsc8EzeqkzqLj2',
+//   apiKey: process.env.OPENAI_API_KEY,
+// })
+// const openai = new OpenAIApi(configuration)
+
+// app.post('/ask-ai', async (req, res) => {
+//   try {
+//     const { prompt } = req.body
+//     console.log(prompt);
+//     if (!prompt) {
+//       return res.json({ error: 'Please input prompt' })
+//     }
+//     const response = await openai.createCompletion({
+//       model: "text-davinci-003",
+//       prompt: `${prompt}`,
+//       max_tokens: 64,
+//       temperature: 0,
+//       top_p: 1.0,
+//       frequency_penalty: 0.0,
+//       presence_penalty:0.0,
+//       stop: ['\n']
+//     })
+//     console.log(response.data.choices)
+//     return res.status(200).json({
+//       success: true,
+//       data: response.data.choices[0].text
+//     })
+//   } catch (error) {
+//     console.log(error.response ? error.response.data : "Issue with a server")
+//     return res.status(400).json({
+//       success: false,
+//       error: error.response ? error.response.data : "Issue with a server"
+//     })
+//   }
+// })
 
 // Register User
 app.post('/user/register', async (req, res) => {
@@ -122,7 +161,7 @@ app.post('/add-developer', (req, res) => {
 })
 
 // Get Admin
-app.get('/developers', (req, res) => {
+app.get('/get-developers', (req, res) => {
   Admin.find((err, data) => {
     if (err) {
       res.status(500).send(err.message)
@@ -131,7 +170,6 @@ app.get('/developers', (req, res) => {
     }
   })
 })
-
 
 const auth = new google.auth.GoogleAuth({
   keyFile: './googleapi.json',
@@ -146,7 +184,7 @@ const drive = google.drive({
 const storage = multerGoogleDrive({
   drive,
   folderId: process.env.folderId,
-  parents: process.env.folderId,
+  parents: process.env.folderId
 })
 
 const upload = multer({
@@ -171,7 +209,7 @@ app.post(
   '/upload',
   upload.single('file'),
   async (req, res) => {
-    const {  mimetype } = req.file
+    const { mimetype } = req.file
     const pathfile = req.file.path
 
     const title = req.body.title
@@ -180,7 +218,7 @@ app.post(
     const unit = req.body.unit
     const worksheet_number = req.body.worksheet_number
     const file_category = req.body.file_category
-    let fileDownload_link = '**';
+    let fileDownload_link = '**'
 
     await new Promise((resolve, reject) => {
       drive.files.list({ q: `name='${req.file.originalname}'` }, (err, res) => {
@@ -188,21 +226,25 @@ app.post(
         const files = res.data.files
         if (!files.length) {
           console.log(`No file with name '${req.file.originalname}' found.`)
-          reject(new Error(`No file with name '${req.file.originalname}' found.`))
+          reject(
+            new Error(`No file with name '${req.file.originalname}' found.`)
+          )
         } else {
-          drive.files.get({
-            fileId: files[0].id,
-            fields: 'webContentLink'
-          }, (err, res) => {
-            if (err) reject(err)
-            const fileLink = res.data.webContentLink
-            fileDownload_link = fileLink
-            resolve()
-          })
+          drive.files.get(
+            {
+              fileId: files[0].id,
+              fields: 'webContentLink'
+            },
+            (err, res) => {
+              if (err) reject(err)
+              const fileLink = res.data.webContentLink
+              fileDownload_link = fileLink
+              resolve()
+            }
+          )
         }
       })
     })
-    
 
     const file = new File({
       title,
@@ -211,8 +253,8 @@ app.post(
       unit,
       worksheet_number,
       file_category,
-      link:fileDownload_link,
-      file_path:process.env.drivePath,
+      link: fileDownload_link,
+      file_path: process.env.drivePath,
       file_mimetype: mimetype
     })
 
@@ -236,9 +278,6 @@ app.get('/getAllFiles', async (req, res) => {
     res.status(400).send('Error while getting list of files. Try again later.')
   }
 })
-
-
-
 
 app.post('/add-subjects', async (req, res) => {
   try {

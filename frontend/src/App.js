@@ -27,6 +27,7 @@ import Roadmap from './Roadmap/Roadmap'
 import CreditCourse from './Components/CreditCourse'
 import PageNotFound from './Components/PageNotFound'
 import NptelNotes from './Components/NptelNotes'
+import CreditInside from './Components/CreditInside'
 
 function App () {
   const user = localStorage.getItem('jwttoken')
@@ -47,17 +48,19 @@ function App () {
           }
         }}
       ></Toaster>
+
       <Router>
+        
         <Navbar />
 
         <main>
-
           <Routes>
             <Route path='' element={<Home />} />
             <Route path=':pagenotfound'  element={<PageNotFound/>} />
             <Route path='login-alert-404' element={<LoginAlert />} />
             <Route path='admin-alert-404' element={<AdminAlert />} />
             <Route path='creditcourse' element={<CreditCourse />} />
+            <Route path='creditcourse/:platform' element={<CreditInside />} />
             <Route path='signup' element={<Signup />} />
             <Route path='login' element={<LoginPage />} />
             <Route path='studymaterial' element={<StudyMaterial />} />

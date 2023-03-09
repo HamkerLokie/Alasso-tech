@@ -1,34 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import './css/Navbar.css'
-import {
-  Link,
- 
-  useNavigate
-} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from '../axios'
 
 const Navbar = () => {
-
-
-  const [adminOnly, setadminonly] = useState(false);
+  const [adminOnly, setadminonly] = useState(false)
   const navigate = useNavigate()
   let user = localStorage.getItem('jwttoken')
-  
-  
+
   useEffect(() => {
     const fetchCourses = async () => {
       const data = await (await axios.get('/getcourse')).data
-      console.log('navbar',data);
+      console.log('navbar', data)
 
       setcourses(data)
     }
     let admin = localStorage.getItem('user')
-    
-    if(admin){
-      const ad = JSON.parse(admin);
-      if( ad && ad.role === 'admin'){
 
-        setadminonly(true);
+    if (admin) {
+      const ad = JSON.parse(admin)
+      if (ad && ad.role === 'admin') {
+        setadminonly(true)
       }
     }
     const fetchNptel = async () => {
@@ -39,13 +31,8 @@ const Navbar = () => {
     fetchNptel()
   }, [adminOnly])
 
-
-
-
- 
   const [courses, setcourses] = useState([])
   const [nptel, setnptel] = useState([])
-
 
   const handleLogout = () => {
     localStorage.clear()
@@ -122,7 +109,7 @@ const Navbar = () => {
             <span className='navbar-toggler-icon'></span>
           </button>
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-            <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
+            <ul className=' nav-center-custom navbar-nav me-auto mb-2 mb-lg-0'>
               <li className='nav-item studymaterial-sub-menu-hover mx-3'>
                 <Link className='nav-link' to='/studymaterial'>
                   Study Material
@@ -157,30 +144,46 @@ const Navbar = () => {
                 </div>
               </li>
               <hr />
+
               <li className='nav-item nptel-sub-menu-hover mx-3'>
                 <Link className='nav-link' to='/creditcourse'>
                   Credit Courses
                 </Link>
-               
+                <div className='sub-menu nptel-dropdown'>
+                  <ul>
+                    <h5 className='sub-menu-heading'>Platforms</h5>
+                    <hr />
+                    <li className='.li-li'>
+                      <Link
+                        to={'/creditcourse/Linkedin'}
+                        className='sub-menu-link'
+                      >
+                        LinkedIn
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </li>
               <hr />
               <li className='nav-item mx-3'>
-                <Link className='nav-link' to='/help'>
-                  Help
+                <Link className='nav-link' to='/contests'>
+                  Contests
                 </Link>
               </li>
               <hr />
               <li className='nav-item mx-3'>
-                <Link className='nav-link' to='/developers'>
-                  Developers
+                <Link className='nav-link' to='/roadmap'>
+                  Roadmaps
                 </Link>
               </li>
               <hr />
-              <li className='nav-item mx-3'>
+             
+            </ul>
+            <li className='nav-item mx-3'>
                 {user ? (
                   <button
                     onClick={handleLogout}
-                    className='btn btn-outline-success bg-dark text-light'
+                    className='nav-btn'
                   >
                     Logout
                   </button>
@@ -199,14 +202,14 @@ const Navbar = () => {
                 </Link>
                 <div className='sub-menu plus-dropdown'>
                   <ul>
-                    <Link className='nav-link-tip' to={'/contests'}>
-                      <i className='  fa fa-2x fa-code' aria-hidden='true'>
-                        <span className='tool-tip'>Contests</span>
+                    <Link className='nav-link-tip' to={'/help'}>
+                      <i className='fa fa-2x fa-map-signs' aria-hidden='true'>
+                        <span className='tool-tip'>Help</span>
                       </i>
                     </Link>
-                    <Link className='nav-link-tip' to={'/roadmap'}>
-                      <i className='  fa fa-2x fa-map-signs' aria-hidden='true'>
-                        <span className='tool-tip'>Roadmaps</span>
+                    <Link className='nav-link-tip' to={'/developers'}>
+                      <i className='  fa fa-2x fa-code ' aria-hidden='true'>
+                        <span className='tool-tip'>Developers</span>
                       </i>
                     </Link>
 
@@ -225,7 +228,6 @@ const Navbar = () => {
                   </ul>
                 </div>
               </li>
-            </ul>
           </div>
         </div>
       </nav>
