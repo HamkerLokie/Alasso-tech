@@ -2,12 +2,10 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import Iframe from 'react-iframe'
 import Nodejs from './Nodejs'
 
 const Roadmap = () => {
   const navigate = useNavigate()
-  const [user, setuser] = useState('')
   const [component, setComponent] = useState('')
 
   useEffect(() => {
@@ -56,10 +54,11 @@ const Roadmap = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 boxShadow:
-                  ' rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px'
+                  ' rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px',
+               
               }}
             >
-              <div>👈 CLICK A SKILL TO SEE THE ROADMAP</div>{' '}
+              <div className='click' > CLICK A SKILL TO SEE THE ROADMAP</div>{' '}
             </div>
           ) : null}
         </div>

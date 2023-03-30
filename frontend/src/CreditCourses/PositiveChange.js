@@ -3,7 +3,8 @@ import React from 'react'
 const PositiveChange = ({ crs }) => {
   return (
     <div class='content'>
-      <div className='topic-cc'>{crs}</div>
+      <div className='topic-cc'>{crs} <br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-learning-and-problem-solving-skills?u=92961692">Learning & Problem Solving</a></h6></div>
 
       <p class='cc-boxes'>
         &nbsp;1:&nbsp; Stress can be chronic but also _ <br />

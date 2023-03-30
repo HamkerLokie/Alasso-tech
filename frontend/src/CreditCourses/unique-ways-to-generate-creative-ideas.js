@@ -3,7 +3,8 @@ import React from 'react'
 const UniqueWaysToGenerateCreativeIdeas = ({ crs }) => {
     return (
         <div class='content'>
-            <div className='topic-cc'>{crs}</div>
+            <div className='topic-cc'>{crs} <br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-entrepreneurship?u=92961692">Entrepreneurship</a></h6></div>
             <p class="cc-boxes">&nbsp;1:&nbsp;When making your list of ideas for a new business, what is something you should avoid? <br /> <br />
 
                 &nbsp;<strong class="ans">erasing and editing ideas</strong> <br />

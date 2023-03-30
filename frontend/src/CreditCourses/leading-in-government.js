@@ -3,7 +3,8 @@ import React from 'react'
 const LeadingInGovernment = ({ crs }) => {
     return (
         <div class='content'>
-            <div className='topic-cc'>{crs}</div>
+            <div className='topic-cc'>{crs} <br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-entrepreneurship?u=92961692">Entrepreneurship</a></h6></div>
                         <p class="cc-boxes">&nbsp;1:&nbsp;Once an agency articulates its goals, what is the next step in meeting these goals? <br /> <br />
                         
                         &nbsp;<strong class="ans">Break the goals into specific work actions.</strong> <br />

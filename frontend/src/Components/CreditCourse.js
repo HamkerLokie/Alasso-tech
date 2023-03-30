@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import './css/Creditcourse.css'
 import toast from 'react-hot-toast'
@@ -9,8 +9,45 @@ const CreditCourse = () => {
   const [inp, setinput] = useState('')
   const navigate = useNavigate()
 
+  useEffect(() => {
+    
+    var cards = document.querySelectorAll('.cp')
+
+    window.addEventListener('load', function(){
+      cards.forEach(e => {
+        e.classList.add('animated')
+      })
+    })
+
+
+
+
+    const section = document.querySelector('.course-platform');
+    var cards = document.querySelectorAll('.cp')
+    const observer = new IntersectionObserver(entries => {
+
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+         
+          cards.forEach(element => {
+            element.classList.add('animated')
+          })
+
+         
+        }
+      })
+    })
+
+    // Start observing the section element
+    observer.observe(section)
+   
+  }, [])
+
+ 
+
+
   const handleCredit = creditCourse => {
-    if (creditCourse === 'Linkedin') {
+    if (creditCourse === 'Linkedin' || creditCourse === 'Coursera') {
       navigate(`${creditCourse}`)
     } else {
       toast.success(`${creditCourse} answers coming soon....keep a check`, {
@@ -21,6 +58,8 @@ const CreditCourse = () => {
       })
     }
   }
+
+
 
   return (
     <div className='display-wrapper'>
@@ -38,7 +77,7 @@ const CreditCourse = () => {
         </div>
 
         <hr />
-        <div className='course-platform'>
+        <section className='course-platform'>
           <div onClick={() => handleCredit('Linkedin')} className='cp cp1'>
             <img className='img-cp' src='course_images/linkedin.png' alt='hii' />
             <span className='span'>Linkedin</span>
@@ -55,7 +94,7 @@ const CreditCourse = () => {
             <img className='img-cp' src='course_images/codechef.png' alt='hii' />
             <span className='span'>CodeChef</span>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   )

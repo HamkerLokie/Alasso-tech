@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const EntFoundation = ({crs}) => {
+
+   
   return (
     <div class='content'>
-            <div className='topic-cc'>{crs}</div>
+            <div className='topic-cc'>{crs} <br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-entrepreneurship?u=92961692">Entrepreneurship</a></h6></div>
 
-
+    
             <p class="cc-boxes">&nbsp;1:&nbsp;Which type of financing product provides you an unlimited credit line as long as the balance is paid within 30 days? <br /> <br />
 
                 &nbsp;finance cards <br />

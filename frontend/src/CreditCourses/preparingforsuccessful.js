@@ -3,7 +3,8 @@ import React from 'react'
 const PreparingForSuccessful = ({ crs }) => {
     return (
         <div class='content'>
-            <div className='topic-cc'>{crs}</div>
+            <div className='topic-cc'>{crs} <br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-academic-paper-writing-and-ipr-14523090?u=92961692">Academic Paper Writing and IPR </a></h6></div>
 
             <p class='cc-boxes'>&nbsp;1:&nbsp;You are in a meeting with your boss and need to ask for a raise. Which tip would you use to reinforce that you are worth it? <br /><br />
 

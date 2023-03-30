@@ -161,6 +161,14 @@ const Navbar = () => {
                         LinkedIn
                       </Link>
                     </li>
+                    <li className='.li-li'>
+                      <Link
+                        to={'/creditcourse/Coursera'}
+                        className='sub-menu-link'
+                      >
+                        Coursera
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -230,8 +238,8 @@ const Navbar = () => {
               </li>
           </div>
         </div>
+        
       </nav>
-      <hr className='navbar-line' />
     </div>
   )
 }

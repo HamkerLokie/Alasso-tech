@@ -44,7 +44,6 @@ const DisplayContent = () => {
     const getFilesList = async () => {
       try {
         const { data } = await axios.get('/getAllFiles')
-        console.log('display',data);
         setFilesList(data)
         let temp  = [];
         for (const i of data) {
@@ -91,7 +90,7 @@ const DisplayContent = () => {
         <img src='/images/courses_banner.png' alt='' />
       </div>
 
-      <div className='content'>
+      <div className='contents'>
       <button className='display-btn' onClick={() => openPopup('syllabus')}>
           <div> Syllabus</div>
           <div>

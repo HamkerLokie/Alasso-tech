@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,700&family=Tilt+Neon&display=swap');
+
 .platforms {
     width: 60%;
     margin: auto auto;
@@ -11,11 +13,13 @@
     position: absolute;
     top: 19%;
     font-size: 3rem;
+    font-family: 'Tilt Neon', cursive;
 }
 
 .plat-top {
     display: flex;
     justify-content: space-between;
+    font-family: 'Tilt Neon', cursive;
 }
 
 .plat-top input {
@@ -100,7 +104,39 @@
     padding: 1em 1em;
     align-self: flex-start;
     font-weight: 600;
+    font-family: 'Tilt Neon', cursive;
 }
+
+
+.cp {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.cp.animated {
+  opacity: 1;
+  transform: scale(1);
+  animation: pulse 1.5s ease-in-out alternate;
+}
+
+.course-platform{
+    margin-bottom: 8%;
+    margin-top: 7%;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+
+
 
 
 @media screen and (max-width:1024px) {

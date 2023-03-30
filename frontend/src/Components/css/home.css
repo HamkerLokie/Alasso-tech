@@ -1,6 +1,7 @@
 #slide-home {
   text-align: center;
   margin: 20px auto;
+  width: auto;
 }
 
 .svg-donate{
@@ -8,12 +9,12 @@
   color: #254380;
 }
 
+
 .qa-navbar{
   position: sticky;
   top: 0;
   z-index: 5;
-  background: linear-gradient(270deg, #3A6FA0 12.39%, #4E9ABF 53.17%, #4E9ABF 65.41%, #3A70A0 88.86%);
-  background: linear-gradient(270deg, #31628D 0.87%, #3A70A0 10.35%, #3A6FA0 20.55%, #468BB4 29.72%, #4A92B9 39.92%, #54A1CA 50.11%, #4E9ABF 54.19%, #4A93BA 60.82%, #478DB5 66.94%, #3A6FA0 76.62%, #3A70A0 82.74%, #32658F 97.02%);
+  
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -59,12 +60,20 @@
   overflow: hidden;
 }
 
+.qa-navbar .links a, .hidden-links a{
+  font-family: 'Tilt Neon', cursive;
+}
+
 .progies{
   position: inherit;
   z-index: inherit;
   width: 28%;
 }
 
+
+.btn-carousel a{
+  font-family: 'Tilt Neon', cursive;
+}
 
 .qa-link {
   color: white;
@@ -74,6 +83,11 @@
 .qa-link:hover {
   color: black;
 }
+
+
+
+
+
 
 .card-down {
   display: inline-block;
@@ -166,98 +180,109 @@
 
 
 /* Progies */
-
-
-
-
-
-.popup{
-  background-color: #ffff;
-  width:80%;
-  padding: 30px 40px;
+.overlay-m{
   position: absolute;
-  left: 50%;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.popup{
+  position: absolute;
+  margin: auto auto;
   top: 50%;
-  transform: translate(-50%,-50%);
-  border-radius: 8px;
-  font-family: "Poppins",sans-serif;
-  display: none; 
-  text-align: center;
-  z-index: 500;
+  left: 50%;
+  z-index: 10;
+  width: 70%;
+  transform: translate(-50%, -50%);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-.popup button{
-  display: block;
-  margin:  0 0 20px auto;
-  background-color: transparent;
-  font-size: 30px;
-  color: #ffffff;
-  border: none;
-  outline: none;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-  color: black;
+
+.seen{
+  display: none;
 }
 
-.popup img{
-  width: 20%;
+.popup{
+  opacity: 0;
 }
 
-.popup p{
-margin-top: 2%;
-font-weight: 600;
+.popup.pop-ani{
+  opacity: 1;
+  
+  transform: translateX(-500%, -50%);
+
+  transition: all 1.5s ease-in-out .2s;
 }
-.popup a{
-  display: block;
-  width: 150px;
+
+
+.pro{
+  height: 100%;
+  width: 100%;
+ position: relative;
+ z-index: 10;
+
+}
+
+.cl{
   position: relative;
-  margin: 10px auto;
-  text-align: center;
-  background-color: #b9279a;
-  border-radius: 20px;
-  color: #ffffff;
-  text-decoration: none;
-  padding: 8px 0;
+  top: 85%;
+  right: -78%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-.popup-btn {
-  position: fixed;
-  bottom: 50px;
-  right: 20px;
-  padding: 10px;
-  background: #ffffff;
-  color: white;
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  z-index: 4;
-  width: 20%;
+/* Set initial state of card-down to be hidden */
+
+.card-down:nth-child(odd){
+  opacity: 0;
+  transform: translateX(100%);
+}
+.card-down:nth-child(3){
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.card-down:nth-child(5){
+  opacity: 0;
+  transform: translateY(-100%);
+}
+.card-down:nth-child(even){
+  opacity: 0;
+  transform: translateY(100%);
+}
+.card-down:nth-child(2){
+  opacity: 0;
+  transform: translateY(-100%);
+}
+.card-down:nth-child(6){
+  opacity: 0;
+  transform: translateX(-100%);
 }
 
-.popup-btn a {
-  color: black;
-  font-weight: 600;
-  text-decoration: none;
 
-}
-
-.popup-btn:hover{
-  transform: scale(1.03);
+/* Animate the card-down element when it becomes visible */
+.card-down.animated{
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 1.5s ease-in-out .6s;
 }
 
 
-.popup h2{
-  font-weight: 600;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
+
+
+
 
 @media screen and (max-width: 1024px) {
 
   .qa-navbar{
     display: none;
+    width: 0;
+  }
+
+  .popup{
+    margin-top: -40%;
+    height: 10%;
+    width: 90%;
   }
   
 }

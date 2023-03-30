@@ -3,7 +3,8 @@ import React from 'react'
 const WritingWhitePapers = ({ crs }) => {
     return (
         <div class='content'>
-            <div className='topic-cc'>{crs}</div>
+            <div className='topic-cc'>{crs} <br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-academic-paper-writing-and-ipr-14523090?u=92961692">Academic Paper Writing and IPR </a></h6></div>
             <p class='cc-boxes'> Q1. A stakeholder who is quoted in a paper should be given the opportunity to review<br /><br />
                 <strong  class='ans'>&nbsp;the section containing the quotation.</strong><br />
                 &nbsp;the quotation only<br />

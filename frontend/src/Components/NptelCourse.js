@@ -7,8 +7,6 @@ import axios from '../axios'
 import './css/NPTELcourse.css'
 import { useNavigate } from 'react-router-dom'
 
-
-
 const NptelCourse = () => {
   const navigate = useNavigate()
   const { courseName } = useParams()
@@ -22,10 +20,25 @@ const NptelCourse = () => {
   const [pagestate, setpagestate] = useState('assignment')
   const [disweeks, setdisweeks] = useState('unhide-weeks')
 
+  const boxes = document.querySelectorAll('.ass-box')
+
+  function showNextBox (index) {
+    if (index >= boxes.length) {
+      return
+    }
+
+    boxes[index].classList.add('show')
+
+    setTimeout(() => {
+      showNextBox(index + 1)
+    }, 100)
+  }
+
+  showNextBox(0)
+
   useEffect(() => {
     const fetchCourse = async () => {
       const data = await (await axios.get('/nptel-courses')).data
-      console.log('nptel-course', data)
       data.map(i => {
         if (i.courseName.toUpperCase() === courseName.toUpperCase()) {
           setassignment(i.assignments)
@@ -37,7 +50,6 @@ const NptelCourse = () => {
     const filterContent = () => {
       for (const j of assignment) {
         if (j.week_num === week) {
-          console.log('weef', week)
           setcontent(j.content)
         }
       }
@@ -47,8 +59,6 @@ const NptelCourse = () => {
     fetchCourse()
     filterContent()
   }, [week])
-
- 
 
   const handleClick = currWeek => {
     toast.success(`Week ${currWeek}`)
@@ -60,7 +70,6 @@ const NptelCourse = () => {
   const handleAssignmet = () => {
     setpagestate('assignment')
     setdisweeks('unhide-weeks')
-
   }
   const handleNotes = () => {
     if (localStorage.getItem('jwttoken')) {
@@ -70,6 +79,8 @@ const NptelCourse = () => {
       navigate('/login-alert-404')
     }
   }
+
+
 
   let index = 1
 
@@ -111,7 +122,7 @@ const NptelCourse = () => {
       </div>
 
       {pagestate === 'assignment' && (
-        <div className='content-nptel'>
+        <div className='content-nptel' id='cont-nptel'>
           {content.length > 0 ? (
             content.map(content => {
               return (
@@ -135,7 +146,8 @@ const NptelCourse = () => {
               style={{
                 textAlign: 'center',
                 fontSize: '5em',
-                fontWeight: '800'
+                fontWeight: '800',
+                fontFamily: 'Tilt Neon'
               }}
             >
               Select Week
@@ -144,23 +156,92 @@ const NptelCourse = () => {
         </div>
       )}
 
-      {pagestate === 'notes' && (
-        <div 
-          style={{ textAlign: 'center' }}
-          className='content-nptel-notes'
-        >
-          <div className='div-iframe'><iframe  src="/books/BINOMIAL DISTRIBUTION.pdf#toolbar=0" frameborder="0"/></div>
+      {pagestate === 'notes' && courseName === 'Probability And Statistics' ? (
+        <div style={{ textAlign: 'center' }} className='content-nptel-notes'>
+          <div className='div-iframe'>
+            <div className='title'>formula sheet</div>
 
-         <div className='div-iframe'> <iframe src="/books/Bivarete distribution.pdf#toolbar=0" frameborder="0"/></div>
-         <div className='div-iframe'> <iframe src="/books/cor relation and regression.pdf#toolbar=0" frameborder="0"/></div>
-         <div className='div-iframe'> <iframe src="/books/Curve fitting.pdf#toolbar=0" frameborder="0"/></div>
-         <div className='div-iframe'> <iframe src="/books/large sample.pdf#toolbar=0" frameborder="0"/></div>
-         <div className='div-iframe'> <iframe src="/books/Normal distribution-1-13.pdf#toolbar=0" frameborder="0/"/></div>
-         <div className='div-iframe'> <iframe src="/books/RANDOM VARIABLE.pdf#toolbar=0" frameborder="0"/></div>
-         <div className='div-iframe'> <iframe src="/books/Extra questions.pdf#toolbar=0" frameborder="0"/></div>
+            <iframe src='/books/formula sheet.pdf#toolbar=0' frameborder='0' />
+          </div>
 
-         
+          <div className='div-iframe'>
+            <div className='title'>P&B Interference</div>
+
+            <iframe
+              src='/books/P&B Interference.pdf#toolbar=0'
+              frameborder='0'
+            />
+          </div>
+
+          <div className='div-iframe'>
+            <div className='title'>Negative Binomial Distribution</div>
+
+            <iframe src='/books/1st.pdf#toolbar=0' frameborder='0' />
+          </div>
+
+          <div className='div-iframe'>
+            <div className='title'>BINOMIAL DISTRIBUTION</div>
+
+            <iframe
+              src='/books/BINOMIAL DISTRIBUTION.pdf#toolbar=0'
+              frameborder='0'
+            />
+          </div>
+
+          <div className='div-iframe'>
+            {' '}
+            <div className='title'>Bivarete distribution</div>
+            <iframe
+              src='/books/Bivarete distribution.pdf#toolbar=0'
+              frameborder='0'
+            />
+          </div>
+          <div className='div-iframe'>
+            {' '}
+            <div className='title'>cor relation and regression</div>
+            <iframe
+              src='/books/cor relation and regression.pdf#toolbar=0'
+              frameborder='0'
+            />
+          </div>
+          <div className='div-iframe'>
+            {' '}
+            <div className='title'>Curve fitting</div>
+            <iframe src='/books/Curve fitting.pdf#toolbar=0' frameborder='0' />
+          </div>
+          <div className='div-iframe'>
+            {' '}
+            <div className='title'>large sample</div>
+            <iframe src='/books/large sample.pdf#toolbar=0' frameborder='0' />
+          </div>
+          <div className='div-iframe'>
+            {' '}
+            <div className='title'>Normal distribution</div>
+            <iframe
+              src='/books/Normal distribution-1-13.pdf#toolbar=0'
+              frameborder='0/'
+            />
+          </div>
+          <div className='div-iframe'>
+            {' '}
+            <div className='title'>RANDOM VARIABLE</div>
+            <iframe
+              src='/books/RANDOM VARIABLE.pdf#toolbar=0'
+              frameborder='0'
+            />
+          </div>
+          <div className='div-iframe'>
+            {' '}
+            <div className='title'>Extra questions</div>
+            <iframe
+              src='/books/Extra questions.pdf#toolbar=0'
+              frameborder='0'
+            />
+          </div>
+        
         </div>
+      ) : (
+        <div>NO Content to Show</div>
       )}
     </div>
   )

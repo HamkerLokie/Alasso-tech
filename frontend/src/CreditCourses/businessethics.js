@@ -3,7 +3,8 @@ import React from 'react'
 const BusinessEthics = ({ crs }) => {
     return (
         <div class='content'>
-            <div className='topic-cc'>{crs}</div>
+            <div className='topic-cc'>{crs}  <br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-ethics-and-gender-equality?u=92961692">Ethics and Gender Equality </a></h6></div>
             <p className='cc-boxes'>
                 &nbsp;1:&nbsp;What is the best way to evaluate if you made a transparent and auditable decision ?< br /> <br />
                 &nbsp;<strong class='ans'>The outcome will be positive if a reviewer examined the rationale for decision.</strong> < br />

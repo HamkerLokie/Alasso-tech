@@ -1,10 +1,8 @@
 const express = require('express')
 const cors = require('cors')
-const fs = require('fs')
 const { default: mongoose } = require('mongoose')
 const { google } = require('googleapis')
 const multerGoogleDrive = require('multer-google-drive')
-const { Configuration, OpenAIApi } = require('openai')
 
 // Schemas
 const Admin = require('./schemas/adminSchema')
@@ -13,11 +11,13 @@ const HelpSchema = require('./schemas/helpSchema')
 const File = require('./schemas/fileSchema')
 const NPTEL = require('./schemas/nptelSchema')
 const User = require('./schemas/userSchema')
+const ReqCourse = require('./schemas/reqCourse')
 
 require('dotenv').config()
 const app = express()
 const path = require('path')
 const bodyParser = require('body-parser')
+const os = require('os')
 
 const multer = require('multer')
 const methodOverride = require('method-override')
@@ -46,44 +46,54 @@ app.get('/', (req, res) => {
   res.send('Hello From Server')
 })
 
-// Open AI
+// Request Course
+app.post('/submit-course', (req, res) => {
+  // Create a new course object from the request body
+  const newCourse = new ReqCourse({
+    courseName: req.body.courseName,
+    platform: req.body.platform,
+    username: os.userInfo().username,
+    completed: false
+  })
 
-// const configuration = new Configuration({
-//   organization: 'org-sAQgpY4fZfcsc8EzeqkzqLj2',
-//   apiKey: process.env.OPENAI_API_KEY,
-// })
-// const openai = new OpenAIApi(configuration)
+  // Save the new course to the database
+  newCourse.save(err => {
+    if (err) {
+      console.log(err)
+      res.sendStatus(500)
+    } else {
+      res.sendStatus(200)
+    }
+  })
+})
 
-// app.post('/ask-ai', async (req, res) => {
-//   try {
-//     const { prompt } = req.body
-//     console.log(prompt);
-//     if (!prompt) {
-//       return res.json({ error: 'Please input prompt' })
-//     }
-//     const response = await openai.createCompletion({
-//       model: "text-davinci-003",
-//       prompt: `${prompt}`,
-//       max_tokens: 64,
-//       temperature: 0,
-//       top_p: 1.0,
-//       frequency_penalty: 0.0,
-//       presence_penalty:0.0,
-//       stop: ['\n']
-//     })
-//     console.log(response.data.choices)
-//     return res.status(200).json({
-//       success: true,
-//       data: response.data.choices[0].text
-//     })
-//   } catch (error) {
-//     console.log(error.response ? error.response.data : "Issue with a server")
-//     return res.status(400).json({
-//       success: false,
-//       error: error.response ? error.response.data : "Issue with a server"
-//     })
-//   }
-// })
+app.get('/getReqCourses', (req, res) => {
+  // Find all courses in the database
+  ReqCourse.find((err, courses) => {
+    if (err) {
+      console.log(err)
+      res.sendStatus(500)
+    } else {
+      res.send(courses)
+    }
+  })
+})
+
+app.post('/update-req-course', (req, res) => {
+  // Update the completed status of the specified course
+  ReqCourse.findByIdAndUpdate(
+    req.body.courseId,
+    { completed: req.body.completed },
+    (err, course) => {
+      if (err) {
+        console.log(err)
+        res.sendStatus(500)
+      } else {
+        res.sendStatus(200)
+      }
+    }
+  )
+})
 
 // Register User
 app.post('/user/register', async (req, res) => {
@@ -359,6 +369,8 @@ app.get('/nptel-courses', (req, res) => {
     }
   })
 })
+
+
 
 // Add NPTEL
 

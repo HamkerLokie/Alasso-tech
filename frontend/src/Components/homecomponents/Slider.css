@@ -1,5 +1,5 @@
 .container-slider {
-  max-width: 1540px;
+  max-width: auto;
   height: calc(100vh - 68px);
   left: 0px;
   top: 0px;
@@ -208,7 +208,6 @@
   transition: all 0.1s ease 0s;
   border-radius: 10px;
 }
-
 
 @media screen and (max-width: 1024px) {
   .highlights1 {

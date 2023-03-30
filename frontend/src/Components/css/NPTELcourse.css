@@ -6,11 +6,20 @@
 }
 
 
-
-.head-nptel{
-    font-weight: 800;
+.title{
+    background: #254380;
+    padding: .5em .3em;
+    text-transform: uppercase;
+    font-family: 'Tilt Neon';
 }
-.content-nptel-notes{
+
+
+.head-nptel {
+    font-weight: 800;
+    font-family: 'Tilt Neon', cursive;
+}
+
+.content-nptel-notes {
     width: 80%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -19,7 +28,7 @@
     margin-bottom: 1em;
 }
 
-.div-iframe{
+.div-iframe {
     width: 100%;
     padding: 2em;
     color: white;
@@ -30,12 +39,13 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     width: 100%;
     height: 400px;
-  
+
 }
-iframe::-webkit-scrollbar{
+
+iframe::-webkit-scrollbar {
     display: none;
 }
-  
+
 .week-nptel {
     display: flex;
     justify-content: space-between;
@@ -50,7 +60,7 @@ iframe::-webkit-scrollbar{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 1em;
+    padding-top: 0em;
     padding-bottom: 1em;
 }
 
@@ -58,10 +68,12 @@ iframe::-webkit-scrollbar{
     width: 10%;
     margin-left: 2%;
     margin-right: 2%;
+    font-family: 'Tilt Neon', cursive;
 }
 
 .weekNum {
     margin-top: 0.7%;
+    font-family: 'Tilt Neon', cursive;
 }
 
 
@@ -92,7 +104,7 @@ iframe::-webkit-scrollbar{
     width: 70%;
     padding: 0.5em 2em 0.5em 2em;
     margin-top: 1%;
-    max-height: 70vh;
+    min-height: 60vh;
     overflow: scroll;
 }
 
@@ -138,12 +150,29 @@ iframe::-webkit-scrollbar{
     width: 90%;
     overflow: auto;
 }
-.hide-weeks{
+
+.hide-weeks {
     display: none;
 }
-.unhide-weeks{
+
+.unhide-weeks {
     display: flex;
 }
+
+
+.ass-box {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.ass-box.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
 
 @media screen and (max-width:1024px) {
     .content-nptel {
@@ -155,23 +184,24 @@ iframe::-webkit-scrollbar{
         font-size: 1.5em;
     }
 
-    .weekbtn{
+    .weekbtn {
         width: 140px;
         display: flex;
         overflow: visible;
         overflow: scroll;
     }
-    .navigation{
+
+    .navigation {
         display: flex;
         flex-direction: column;
     }
 
-    .btn-nptel{
+    .btn-nptel {
         width: 50%;
         margin: .1em;
     }
 
-    .content-nptel-notes{
+    .content-nptel-notes {
         display: flex;
         flex-direction: column;
     }

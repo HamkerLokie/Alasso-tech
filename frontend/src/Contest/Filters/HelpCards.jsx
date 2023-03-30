@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+
 
 const HelpCards = ({ contest }) => {
+  
   return (
     <div className='singleCard'>
       <div className=" contest-label contest-timing">{contest.start_time.slice(0,10)} - {contest.end_time.slice(0,10)}</div>

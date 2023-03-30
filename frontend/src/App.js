@@ -11,11 +11,9 @@ import {
   Route,
 } from 'react-router-dom'
 import DisplayContent from './Components/DisplayContent'
-
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
 import Contest from './Contest/Contest'
-
 import Semester_Nav from './Components/Semester_Nav'
 import { Toaster } from 'react-hot-toast'
 import NptelCourse from './Components/NptelCourse'
@@ -28,6 +26,7 @@ import CreditCourse from './Components/CreditCourse'
 import PageNotFound from './Components/PageNotFound'
 import NptelNotes from './Components/NptelNotes'
 import CreditInside from './Components/CreditInside'
+import DevbyLokie from './Promotions/DevbyLokie'
 
 function App () {
   const user = localStorage.getItem('jwttoken')
@@ -69,6 +68,7 @@ function App () {
             <Route path='nptel/:courseName/:notes' element={<NptelNotes />} />
             <Route path='help' element={<Help />} />
             <Route path='developers' element={<Developers />} />
+            <Route path='devbylokie' element={<DevbyLokie />} />
 
             <Route path='' element={<NptelCourse />} />
             <Route

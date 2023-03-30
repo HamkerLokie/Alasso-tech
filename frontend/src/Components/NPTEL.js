@@ -9,26 +9,7 @@ import { InfinitySpin } from 'react-loader-spinner'
 const NPTEL = () => {
   const [courses, setcourse] = useState([])
   const navigate = useNavigate()
-  const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-      background: 'white',
-      boxShadow:
-        'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset',
-      width: '50%',
-      height: ' 50%',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      zIndex: '5'
-    }
-  }
+  
 
   const responsive = {
     superLargeDesktop: {

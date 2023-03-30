@@ -3,7 +3,8 @@ import React from 'react'
 const UnconsciousBias = ({ crs }) => {
     return (
         <div class='content'>
-            <div className='topic-cc'>{crs}</div>
+            <div className='topic-cc'>{crs}  <br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-ethics-and-gender-equality?u=92961692">Ethics and Gender Equality </a></h6></div>
             <p class='cc-boxes'>&nbsp;1:&nbsp;What are some ways you can challenge or prevent Group Think ?<br /><br />
                 &nbsp;Take on the role of dissenter in every meeting without establishing this as a meeting norm.<br />
                 &nbsp;none of these answers<br />

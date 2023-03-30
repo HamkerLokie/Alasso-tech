@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './css/Signup.css'
-import Login from '../Popups/Login'
 import { toast } from 'react-hot-toast'
 import { useEffect } from 'react'
 import axios from '../axios'
@@ -44,7 +43,6 @@ const Signup = () => {
         cpassword
       })
       .then(() => {
-        console.log('Registration Successful')
         setLoading(false)
         toast.success(`We are Happy to see you ${username}, Please Login`)
         navigate('/login')

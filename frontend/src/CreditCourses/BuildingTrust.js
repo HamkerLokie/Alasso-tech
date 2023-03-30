@@ -4,7 +4,8 @@ import './css/writingemail.css'
 const BuildingTrust = ({ crs }) => {
   return (
     <div class='content'>
-      <div className='topic-cc'>{crs}</div>
+      <div className='topic-cc'>{crs}<br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-team-skills-16840899?u=92961692">Team Skills</a></h6></div>
       <p class='cc-boxes'>
         &nbsp;1:&nbsp; An important way to show trust is by listening. When you
         are on a video call, how can you show someone that you are listening to

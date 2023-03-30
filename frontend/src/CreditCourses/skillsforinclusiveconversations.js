@@ -3,7 +3,8 @@ import React from 'react'
 const SkillsforInclusiveConsersations = ({ crs }) => {
     return (
         <div class='content'>
-            <div className='topic-cc'>{crs}</div>
+            <div className='topic-cc'>{crs}  <br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-ethics-and-gender-equality?u=92961692">Ethics and Gender Equality </a></h6></div>
 
             <p class='cc-boxes'>&nbsp;1:&nbsp;How might you help build psychological safety at a day-long seminar group that you are leading?<br /><br />
 

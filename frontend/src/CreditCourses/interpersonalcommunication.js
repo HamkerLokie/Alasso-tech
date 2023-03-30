@@ -3,7 +3,8 @@ import React from 'react'
 const Interpersonalcommunication = ({ crs }) => {
     return (
         <div class='content'>
-            <div className='topic-cc'>{crs}</div>
+            <div className='topic-cc'>{crs} <br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-interpersonal-skills-with-cultural-knowledge-intrapersonal-awareness?u=92961692">Interpersonal Skills </a></h6></div>
             <p className='cc-boxes'>
             &nbsp;1:&nbsp;When is it better to have a phone conversation with a colleague?<br/><br/>
 

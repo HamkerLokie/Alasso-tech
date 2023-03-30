@@ -1,12 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./css/Footer.css";
 import { Link } from "react-router-dom";
 
+
+
 const Footer = () => {
+
+  useEffect(() => {
+    const section = document.querySelector('#my-footer');
+      var socials = document.querySelector('.socials')
+      var links = document.querySelector('.footer-link')
+      var copy = document.querySelector('.copy-rights')
+      const observer = new IntersectionObserver(entries => {
+  
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+           
+            
+
+            socials.classList.add('animated')
+            links.classList.add('animated')
+            copy.classList.add('animated')
+
+  
+           
+          }
+        })
+      })
+  
+      // Start observing the section element
+      observer.observe(section)
+  })
   return (
-    <div className="footer-container">
-      <footer>
-        <div class="footer-content">
+    <div className="footer-container" >
+      <footer >
+        <div class="footer-content" id="my-footer">
           <ul class="socials">
             <li>
               <a href="mailto:alasso.tech@gmail.com" rel="noreferrer" target="_blank">
@@ -66,7 +94,7 @@ const Footer = () => {
             </li>
             </ul>
           </div>
-          <p>
+          <p className="copy-rights">
             Copyright &copy; 2023 <strong>Alasso</strong> | All Rights &reg;
             Reserved.
           </p>

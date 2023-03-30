@@ -3,7 +3,8 @@ import React from 'react'
 const CriticalThinkTm = ({ crs }) => {
   return (
     <div class="content">
-        <div className="topic-cc">{crs}</div>
+        <div className="topic-cc">{crs}<br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-time-management-ways-of-thinking-curated-by-prof-sonam-saini?u=92961692">Time Management</a></h6></div>
 
     <p class="cc-boxes">&nbsp;1:&nbsp;Vilfredo Pareto, the author of the 80/20 rule, observed this rule
         to be in effect in both ____ and _____ <br/> <br/>

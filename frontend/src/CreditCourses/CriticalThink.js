@@ -3,7 +3,8 @@ import React from 'react'
 const CriticalThink = ({ crs }) => {
   return (
     <div class='content'>
-        <div className="topic-cc">{crs}</div>
+        <div className="topic-cc">{crs}<br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-team-skills-16840899?u=92961692">Team Skills</a></h6></div>
 
       <p class='cc-boxes'>
         &nbsp;1:&nbsp;What can you use action plans for, in addition to leading

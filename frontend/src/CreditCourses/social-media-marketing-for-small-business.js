@@ -3,7 +3,8 @@ import React from 'react'
 const SocialMediaMarketingForSmallBusiness = ({ crs }) => {
     return (
         <div class='content'>
-            <div className='topic-cc'>{crs}</div>
+            <div className='topic-cc'>{crs}<br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-entrepreneurship?u=92961692">Entrepreneurship</a></h6></div>
                         <p class="cc-boxes">&nbsp;1:&nbsp;Among the most important things to consider when developing your business’s social media plan is
                         to _. <br /> <br />
 

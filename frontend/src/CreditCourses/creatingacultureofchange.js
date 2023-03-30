@@ -3,7 +3,9 @@ import React from 'react'
 const Creatingacultureofchange = ({ crs }) => {
     return (
         <div class='content'>
-            <div className='topic-cc'>{crs}</div>
+            <div className='topic-cc'>{crs} <br />
+             <h6>Link to Course - <a target={'_blank'} href="https://www.linkedin.com/learning/paths/chandigarh-university-interpersonal-skills-with-cultural-knowledge-intrapersonal-awareness?u=92961692">Interpersonal Skills </a></h6>
+            </div>
             <p className='cc-boxes'>
 
                 &nbsp;1:&nbsp;Once you've built your professional online social network, you need to maintain it by managing it effectively. How can you best manage your professional online social network?<br /><br />

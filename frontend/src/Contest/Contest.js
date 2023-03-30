@@ -9,22 +9,11 @@ import { v4 as uuidV4 } from 'uuid'
 import '../Components/css/Help.css'
 import { InfinitySpin } from 'react-loader-spinner'
 
-
 const Contest = () => {
   const [codeContest, setCodeContests] = useState([])
   const [filtered, setFiltered] = useState([])
   const [platform, setPlatform] = useState('')
   const navigate = useNavigate()
-
-  useEffect(() => {
-    const token = localStorage.getItem('jwttoken')
-
-    if (!token) {
-      navigate('/login-alert-404')
-    }
-
-    getContests()
-  }, [navigate])
 
   async function getContests () {
     const data = await axios.get('https://kontests.net/api/v1/all')
@@ -34,29 +23,92 @@ const Contest = () => {
   }
 
 
+
+  useEffect(() => {
+    const section = document.querySelector('.filter-btns')
+    var cardDown = document.querySelectorAll('.filter-btns')
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          cardDown.forEach(element => {
+            element.classList.add('animated')
+
+          })
+        }
+      })
+    })
+    observer.observe(section)
+
+    
+
+    const token = localStorage.getItem('jwttoken')
+    if (!token) {
+      navigate('/login-alert-404')
+    }
+   
+    getContests()
+
+  }, [navigate])
+
+  useEffect(() => {
+
+      const sections = document.querySelector('.contest-wrap')
+      const helpCard = document.querySelectorAll('.helpcard')
+      console.log(helpCard);
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            helpCard.forEach(i => {
+              i.classList.add('show')
+            })
+          }
+        })
+      })
+    
+      observer.observe(sections)
+    
+    
+console.log(filtered);
+   
+  }, [filtered])
+
+
+  
+
+
+
+
+ 
  
 
+
+ 
   return (
     <div className='help-cont'>
       <div className='banner'>
         <img src='images/Contests_page.png' alt='' />
       </div>
-      <div className='buttons btnss'>
+      <div className='buttons btnss filter-btns'>
         <HelpFilters
           codeContest={codeContest}
           setFiltered={setFiltered}
           platform={platform}
           setPlatform={setPlatform}
         />
+
       </div>
 
       <div className='contest-wrap'>
-        {filtered.length > 0 ? filtered.map(contest => {
-          return <HelpCards key={uuidV4()} contest={contest} />
-        }): (
-          <div style={{alignItems:'center', marginLeft:'36%' , width:'100vw'}}>
-              <InfinitySpin  width='200' color='#FF5353' />
-              </div>
+        {filtered.length > 0 ? (
+          filtered.map(contest => {
+            return <div className="helpcard"><HelpCards  key={uuidV4()} contest={contest} /></div> 
+          })
+        ) : (
+          <div
+            style={{ alignItems: 'center', marginLeft: '36%', width: '100vw' }}
+          >
+            <InfinitySpin width='200' color='#FF5353' />
+          </div>
         )}
       </div>
     </div>

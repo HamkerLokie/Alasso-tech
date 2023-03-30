@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,700&display=swap');
+
 .admin-cont {
     width: 99%;
 }
@@ -5,6 +7,8 @@
 .admin-cont .admin img {
     width: 50%;
 }
+
+
 
 .atop {
     margin-top: 1%;
@@ -51,6 +55,7 @@
     width: 100%;
     border-radius: 0px;
     margin: .2em 0em .2em 0em;
+    font-family: 'Tilt Neon', cursive;
 }
 
 .admin-right
@@ -68,6 +73,11 @@
     margin-top: 2%;
 
 }
+
+
+.click {
+    font-family: 'Nunito', sans-serif;
+  }
 
 
 @media screen and (max-width:1024px) {
